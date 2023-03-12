@@ -1,0 +1,9 @@
+.card__description {
+	display: flex;
+	justify-content: space-between;
+	max-width: 246px;
+
+	padding: 17px 15px 28px 21px;
+	margin: 0 auto;
+
+}
