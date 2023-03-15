@@ -10,8 +10,8 @@
   background-repeat: no-repeat;
   border: 0;
 
-  left: 100%;
-  top: -10%;
+  left: 101%;
+  top: -12%;
 }
 
 .popup__botton-close:hover {
@@ -23,7 +23,7 @@
     width: 20px;
     height: 20px;
 
-    left: 90%;
+    left: 93%;
 
   }
 }

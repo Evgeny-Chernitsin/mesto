@@ -68,19 +68,21 @@
       </article>
     </section>
     <div class="popup">
-      <form action="index.html" method="post" name="form" class="popup__container">
+      <div class="popup__container">
         <button type="button" class="popup__botton-close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="Name" class="popup__input popup__name">
-        <input type="text" name="Job" class="popup__input popup__job">
-        <button type="submit" class="popup__button-save">Сохранить</button>
-      </form>
+        <form class="form" name="form">
+          <input type="text" name="userName" class="form__input form__input_type_name">
+          <input type="text" name="userJob" class="form__input form__input_type_job">
+          <button type="submit" class="form__button-save">Сохранить</button>
+        </form>
+      </div>
     </div>
   </main>
   <footer class="footer">
     <p lang="en" class="footer__text">© 2020 Mesto Russia</p>
   </footer>
-  <script async src="./scripts /index.js"></script>
+  <script async src="./scripts/index.js"></script>
 </body>
 
 </html>

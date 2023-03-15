@@ -1,4 +1,4 @@
-.popup__input {
+.form__input {
   min-width: 358px;
 
   font-weight: 400;
@@ -12,7 +12,7 @@
 
 
 @media screen and (max-width: 515px) {
-  .popup__input {
+  .form__input {
     min-width: 238px;
   }
 }
