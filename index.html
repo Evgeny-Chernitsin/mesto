@@ -24,58 +24,44 @@
       <button class="profile__button-add"></button>
     </section>
     <section class="cards">
-      <article class="card">
-        <img src="./images/karchevsk.jpg" alt="Замок" class="card__img">
-        <div class="card__description">
-          <h2 class="card__caption">Карачаевск</h2>
-          <button type="button" class="card__heart"></button>
+      <template class="card">
+        <div class="template__element card">
+          <button class="card__delete" type="button"></button>
+          <img src="" alt="Картинка" class="card__img">
+          <div class="card__description">
+            <h2 class="card__caption">Карачаевск</h2>
+            <button type="button" class="card__heart"></button>
+          </div>
         </div>
-      </article>
-      <article class="card">
-        <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__img">
-        <div class="card__description">
-          <h2 class="card__caption">Гора Эльбрус</h2>
-          <button type="button" class="card__heart"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/dombai.jpg" alt="Домбай" class="card__img">
-        <div class="card__description">
-          <h2 class="card__caption">Домбай</h2>
-          <button type="button" class="card__heart"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/elbrus.jpg" alt="Эльбрус" class="card__img">
-        <div class="card__description">
-          <h2 class="card__caption">Гора Эльбрус</h2>
-          <button type="button" class="card__heart"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/dombai.jpg" alt="Домбай" class="card__img">
-        <div class="card__description">
-          <h2 class="card__caption">Домбай</h2>
-          <button type="button" class="card__heart"></button>
-        </div>
-      </article>
-      <article class="card">
-        <img src="./images/karchevsk.jpg" alt="Замок" class="card__img">
-        <div class="card__description">
-          <h2 class="card__caption">Карачаево-Черкессия</h2>
-          <button type="button" class="card__heart"></button>
-        </div>
-      </article>
+      </template>
     </section>
     <div class="popup">
       <div class="popup__container">
-        <button type="button" class="popup__botton-close"></button>
+        <button type="button" class="popup__button-close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="form" name="form">
           <input type="text" name="userName" class="form__input form__input_type_name">
           <input type="text" name="userJob" class="form__input form__input_type_job">
           <button type="submit" class="form__button-save">Сохранить</button>
         </form>
+      </div>
+    </div>
+    <div id="popup-card" class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__button-close popup__button-close_type_card"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="form" name="formCard">
+          <input type="text" name="cardName" placeholder="Название" class="form__input form__input_type_cardname">
+          <input type="text" name="cardImg" placeholder="Ссылка на картинку" class="form__input form__input_type_link">
+          <button type="submit" class="form__button-save form__button-save-card">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div id="popup-img" class="popup">
+      <div class="popup__big-img">
+        <button type="button" class="popup__button-close popup__button-close_type_img"></button>
+        <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="" class="popup__img">
+        <h2 class="popup__img-title">Домбай</h2>
       </div>
     </div>
   </main>
