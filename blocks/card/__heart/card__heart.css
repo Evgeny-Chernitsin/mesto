@@ -6,6 +6,8 @@
   border: 0;
 
   background-image: url(../../../images/heart.png);
+
+  cursor: pointer;
 }
 
 

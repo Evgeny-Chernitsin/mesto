@@ -12,6 +12,8 @@
 
   left: 101%;
   top: -12%;
+
+  cursor: pointer;
 }
 
 .popup__botton-close:hover {

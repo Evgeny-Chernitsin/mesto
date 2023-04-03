@@ -8,6 +8,8 @@
 
   background-image: url(../../../images/add-button.png);
   background-color: black;
+
+  cursor: pointer;
 }
 
 .profile__button-add:hover {

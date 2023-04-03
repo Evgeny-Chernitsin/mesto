@@ -3,9 +3,24 @@
   max-width: 880px;
   width: 95%;
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-template-columns: repeat(3,282px);
+  justify-content: center;
   gap: 20px 17px;
 }
+
+
+@media screen and (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2,282px);
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .cards {
+    grid-template-columns: 282px;
+  }
+}
+
 
 @media screen and (max-width: 340px) {
   .cards {
