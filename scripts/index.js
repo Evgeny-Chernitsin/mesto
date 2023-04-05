@@ -22,6 +22,7 @@ const buttonCloseAddCard = document.querySelector('.popup__button-close_type_car
 const inputNameCard = popupAddCard.querySelector('.form__input_type_cardname');
 const inputLinkCard = popupAddCard.querySelector('.form__input_type_link');
 const buttonSaveCard = popupAddCard.querySelector('.form__button-save-card');
+const cardForm = document.querySelector('.form_card');
 
 const popupBigImg = document.querySelector('.popup_open-img');
 const bigImg = popupBigImg.querySelector('.popup__img');
@@ -39,7 +40,7 @@ const createCard = function (item) {
   })
   cardElement.querySelector('.card__img').addEventListener('click', () => openBigImg(item));
 
-  deleteCard(cardElement);
+  setDeleteCardListener(cardElement);
   return cardElement;
 };
 
@@ -49,7 +50,7 @@ initialCards.forEach(card => {
 });
 
 //Добавление карточки
-const hendelFormSubmitCard = (evt) => {
+const submitAddCardForm = (evt) => {
   evt.preventDefault();
   const valueCard = ({
     name: inputNameCard.value,
@@ -58,19 +59,19 @@ const hendelFormSubmitCard = (evt) => {
   );
   cardsContainer.prepend(createCard(valueCard));
   closePopup(popupAddCard);
-  const cardForm = document.querySelector('.form_card').reset()
+  cardForm.reset();
 }
 
-buttonSaveCard.addEventListener('click', hendelFormSubmitCard);
+buttonSaveCard.addEventListener('click', submitAddCardForm);
 
 //Функция удаления
-function hendelDeleteCard(evt) {
-  const deleteCard = evt.target.closest('.card');
-  deleteCard.remove();
+function deleteCard(evt) {
+  const cardDelete = evt.target.closest('.card');
+  cardDelete.remove();
 }
 
-function deleteCard(cardElement) {
-  cardElement.querySelector('.card__delete').addEventListener('click', hendelDeleteCard);
+function setDeleteCardListener(cardElement) {
+  cardElement.querySelector('.card__delete').addEventListener('click', deleteCard);
 }
 
 //Функиция отрытия картинки
