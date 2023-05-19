@@ -98,7 +98,6 @@ const closePopup = function (popup) {
 }
 
 const closePopupEsc = (evt) => {
-  evt.preventDefault();
   if (evt.key === 'Escape') {
     const openWindowPopup = document.querySelector('.popup_opened')
     closePopup(openWindowPopup);
@@ -106,7 +105,6 @@ const closePopupEsc = (evt) => {
 }
 
 const closePopupOverlay = (evt) => {
-  evt.preventDefault();
   if (evt.target === evt.currentTarget) {
     const openWindowPopup = document.querySelector('.popup_opened')
     closePopup(openWindowPopup);
