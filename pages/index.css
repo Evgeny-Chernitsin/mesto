@@ -31,8 +31,13 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__button-save/form__button-save.css);
+@import url(../blocks/form/__button-save/_disabled/form__button-save_disabled.css);
+@import url(../blocks/form/__button-save/_valid/form__button-save_valid.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input/_type/form__input_type_job.css);
 @import url(../blocks/form/__input/_type/form__input_type_name.css);
 @import url(../blocks/form/__input/_type/form__input_type_cardname.css);
 @import url(../blocks/form/__input/_type/form__input_type_link.css);
+@import url(../blocks/form/__input/_type/form__input_type_error.css);
+@import url(../blocks/error/error.css);
+@import url(../blocks/error/_type_indent/error_type_indent.css);

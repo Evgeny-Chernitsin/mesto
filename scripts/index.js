@@ -87,11 +87,32 @@ const openBigImg = function (item) {
 
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  popup.addEventListener('click', closePopupOverlay);
 }
 
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+  popup.removeEventListener('click', closePopupOverlay);
 }
+
+const closePopupEsc = (evt) => {
+  evt.preventDefault();
+  if (evt.key === 'Escape') {
+    const openWindowPopup = document.querySelector('.popup_opened')
+    closePopup(openWindowPopup);
+  }
+}
+
+const closePopupOverlay = (evt) => {
+  evt.preventDefault();
+  if (evt.target === evt.currentTarget) {
+    const openWindowPopup = document.querySelector('.popup_opened')
+    closePopup(openWindowPopup);
+  }
+}
+
 
 //Функция отправки формы
 function handleFormSubmitProfile(evt) {
