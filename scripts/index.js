@@ -94,7 +94,6 @@ const openPopup = function (popup) {
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
-  popup.removeEventListener('click', closePopupOverlay);
 }
 
 const closePopupEsc = (evt) => {
@@ -107,10 +106,9 @@ const closePopupEsc = (evt) => {
 const closePopupOverlay = (evt) => {
   if (evt.target === evt.currentTarget) {
     const openWindowPopup = document.querySelector('.popup_opened')
-    closePopup(openWindowPopup);
+    closePopup(evt.target);
   }
 }
-
 
 //Функция отправки формы
 function handleFormSubmitProfile(evt) {
@@ -128,12 +126,14 @@ buttonEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
 });
 
-buttonCloseEditProfile.addEventListener('click', () => {
-  closePopup(popupEditProfile);
+document.querySelectorAll('.popup__button-close').forEach(button => {
+  const buttonsPopup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(buttonsPopup));
 });
 
 buttonAddCard.addEventListener('click', () => {
   openPopup(popupAddCard);
+  startValidation(containerElement);
 });
 
 buttonCloseAddCard.addEventListener('click', () => {
@@ -141,4 +141,8 @@ buttonCloseAddCard.addEventListener('click', () => {
 });
 buttonCloseBigImg.addEventListener('click', () => {
   closePopup(popupBigImg);
+});
+
+containerPopup.addEventListener('click', () => {
+  closePopupOverlay
 });

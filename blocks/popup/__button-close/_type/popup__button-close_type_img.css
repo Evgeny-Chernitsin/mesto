@@ -1,3 +1,13 @@
 .popup__button-close_type_img {
   top: -7%;
 }
+
+@media screen and (max-width: 515px) {
+  .popup__button-close_type_img {
+    width: 20px;
+    height: 20px;
+
+    left: 92%;
+    top: -16%;
+  }
+}
