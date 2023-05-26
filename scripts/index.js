@@ -1,6 +1,7 @@
 //Форма
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const buttonCloseEditProfile = document.querySelector('.popup__button-close');
+const popupElements = document.querySelectorAll('.popup');
 
 const containerPopup = document.querySelector('.popup__container');
 const buttonEditProfile = document.querySelector('.profile__button-edit')
@@ -84,15 +85,22 @@ const openBigImg = function (item) {
 }
 
 //Функция открытия и закрытия попап
+popupElements.forEach((evt) => {
+  evt.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup(evt.target);
+    }
+  })
+})
+
 
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  popup.addEventListener('click', closePopupOverlay);
 }
 
-const closePopup = function (popup) {
-  popup.classList.remove('popup_opened');
+const closePopup = function (evt) {
+  evt.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
 }
 
@@ -105,7 +113,6 @@ const closePopupEsc = (evt) => {
 
 const closePopupOverlay = (evt) => {
   if (evt.target === evt.currentTarget) {
-    const openWindowPopup = document.querySelector('.popup_opened')
     closePopup(evt.target);
   }
 }
@@ -143,6 +150,3 @@ buttonCloseBigImg.addEventListener('click', () => {
   closePopup(popupBigImg);
 });
 
-containerPopup.addEventListener('click', () => {
-  closePopupOverlay
-});

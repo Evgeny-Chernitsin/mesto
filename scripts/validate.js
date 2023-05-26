@@ -18,36 +18,35 @@ const startValidation = ({ formSelector, ...rest }) => {
 const setEventListeners = (form, { inputSelector, submitButtonSelector, ...rest }) => {
   const formInputs = Array.from(form.querySelectorAll(inputSelector));
   const formButton = form.querySelector(submitButtonSelector);
-  disableButton(formButton, rest);
+  activeButton(formButton, rest);
   formInputs.forEach(input => {
     input.addEventListener('input', () => {
       if (hasInvalidInput(formInputs)) {
-        disableButton(formButton, rest);
-      } else {
         activeButton(formButton, rest);
+      } else {
+        disableButton(formButton, rest);
       }
-      checkInputValidity(input);
+      checkInputValidity(input,form);
     });
   });
 };
 
 //Функция проверяет поля ввода и выводит сообщение ошибки при невалидности 
-const checkInputValidity = (input) => {
+const checkInputValidity = (input,form) => {
   if (input.checkValidity()) {
-    hideInputError(input)
+    hideInputError(input,form)
   } else {
-    showInputError(input)
+    showInputError(input,form)
   }
 };
 
-const showInputError = (input) => {
-  const errorInputContainer = document.querySelector(`#${input.id}-error`);
+const showInputError = (input,form) => {
+  const errorInputContainer = form.querySelector(`#${input.id}-error`);
   errorInputContainer.textContent = input.validationMessage;
-  input.classList.add('form__input_type_error')
 }
 
-const hideInputError = (input) => {
-  const errorInputContainer = document.querySelector(`#${input.id}-error`);
+const hideInputError = (input,form) => {
+  const errorInputContainer = form.querySelector(`#${input.id}-error`);
   errorInputContainer.textContent = ''
   input.classList.remove('form__input_type_error')
 }
@@ -57,13 +56,13 @@ const hasInvalidInput = (formInputs) => {
 }
 
 //Функции делающии кнопки активными/неактивными 
-const disableButton = (button, { inactiveButtonClass }) => {
-  button.classList.add(inactiveButtonClass);
+const activeButton = (button, { inactiveButtonClass }) => {
+  button.classList.add(inactiveButtonClass );
   button.setAttribute('disabled', true)
 }
 
-const activeButton = (button, { inactiveButtonClass }) => {
-  button.classList.remove(inactiveButtonClass);
+const disableButton = (button, { inactiveButtonClass }) => {
+  button.classList.remove(inactiveButtonClass );
   button.removeAttribute('disabled', true)
 }
 
