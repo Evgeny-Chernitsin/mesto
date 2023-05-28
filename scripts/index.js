@@ -77,6 +77,7 @@ function setDeleteCardListener(cardElement) {
 
 //Функиция отрытия картинки
 const openBigImg = function (item) {
+  popupBigImg.classList.add('popup__big-img_opened')
   bigImg.src = item.link;
   bigImgTitle.textContent = item.name;
   bigImg.alt = item.name;

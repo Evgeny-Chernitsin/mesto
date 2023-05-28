@@ -26,29 +26,30 @@ const setEventListeners = (form, { inputSelector, submitButtonSelector, ...rest 
       } else {
         disableButton(formButton, rest);
       }
-      checkInputValidity(input,form);
+      checkInputValidity(input,form, rest);
     });
   });
 };
 
 //Функция проверяет поля ввода и выводит сообщение ошибки при невалидности 
-const checkInputValidity = (input,form) => {
+const checkInputValidity = (input,form, inputErrorClass) => {
   if (input.checkValidity()) {
-    hideInputError(input,form)
+    hideInputError(input,form, inputErrorClass)
   } else {
-    showInputError(input,form)
+    showInputError(input,form, inputErrorClass)
   }
 };
 
-const showInputError = (input,form) => {
+const showInputError = (input,form, { inputErrorClass }) => {
   const errorInputContainer = form.querySelector(`#${input.id}-error`);
+  input.classList.add(inputErrorClass)
   errorInputContainer.textContent = input.validationMessage;
 }
 
-const hideInputError = (input,form) => {
+const hideInputError = (input,form, { inputErrorClass }) => {
   const errorInputContainer = form.querySelector(`#${input.id}-error`);
+  input.classList.remove(inputErrorClass);
   errorInputContainer.textContent = ''
-  input.classList.remove('form__input_type_error')
 }
 
 const hasInvalidInput = (formInputs) => {
@@ -67,5 +68,4 @@ const disableButton = (button, { inactiveButtonClass }) => {
 }
 
 startValidation(containerElement);
-
 
