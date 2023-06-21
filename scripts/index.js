@@ -1,3 +1,12 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./card.js";
+import { initialCards } from "./card.js";
+import { containerFormSelector } from "./FormValidator.js";
+
+const formValidator = new FormValidator(containerFormSelector, '.form');
+formValidator.enableValidation();
+
+
 //Форма
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const buttonCloseEditProfile = document.querySelector('.popup__button-close');
@@ -30,25 +39,26 @@ const bigImg = popupBigImg.querySelector('.popup__img');
 const bigImgTitle = popupBigImg.querySelector('.popup__img-title');
 const buttonCloseBigImg = popupBigImg.querySelector('.popup__button-close_type_img');
 
+
 //Карточка
-const createCard = function (item) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardName = cardElement.querySelector('.card__caption').textContent = item.name;
-  const cardLink = cardElement.querySelector('.card__img').src = item.link;
-  const cardAlt = cardElement.querySelector('.card__img').alt = item.name;
-  cardElement.querySelector('.card__heart').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('card__heart_active')
-  })
-  cardElement.querySelector('.card__img').addEventListener('click', () => openBigImg(item));
+//const createCard = function (item) {
+//  const cardElement = cardTemplate.cloneNode(true);
+//  const cardName = cardElement.querySelector('.card__caption').textContent = item.name;
+//  const cardLink = cardElement.querySelector('.card__img').src = item.link;
+//  const cardAlt = cardElement.querySelector('.card__img').alt = item.name;
+//  cardElement.querySelector('.card__heart').addEventListener('click', function (evt) {
+//    evt.target.classList.toggle('card__heart_active')
+//  })
+//  cardElement.querySelector('.card__img').addEventListener('click', () => openBigImg(item));
 
-  setDeleteCardListener(cardElement);
-  return cardElement;
-};
+//  setDeleteCardListener(cardElement);
+//  return cardElement;
+//};
 
-initialCards.forEach(card => {
-  const newCard = createCard(card);
-  cardsContainer.append(newCard);
-});
+//initialCards.forEach(card => {
+//  const newCard = createCard(card);
+//  cardsContainer.append(newCard);
+//});
 
 //Добавление карточки
 const submitAddCardForm = (evt) => {
@@ -66,14 +76,14 @@ const submitAddCardForm = (evt) => {
 buttonSaveCard.addEventListener('click', submitAddCardForm);
 
 //Функция удаления
-function deleteCard(evt) {
-  const cardDelete = evt.target.closest('.card');
-  cardDelete.remove();
-}
+//function deleteCard(evt) {
+//  const cardDelete = evt.target.closest('.card');
+//  cardDelete.remove();
+//}
 
-function setDeleteCardListener(cardElement) {
-  cardElement.querySelector('.card__delete').addEventListener('click', deleteCard);
-}
+//function setDeleteCardListener(cardElement) {
+//  cardElement.querySelector('.card__delete').addEventListener('click', deleteCard);
+//}
 
 //Функиция отрытия картинки
 const openBigImg = function (item) {
@@ -141,7 +151,7 @@ document.querySelectorAll('.popup__button-close').forEach(button => {
 
 buttonAddCard.addEventListener('click', () => {
   openPopup(popupAddCard);
-  startValidation(containerElement);
+  //startValidation(containerElement);
 });
 
 buttonCloseAddCard.addEventListener('click', () => {
